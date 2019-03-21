@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-// Test comment
 package ping;
 
 service Ping {
