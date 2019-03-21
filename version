@@ -6,17 +6,17 @@ then
   exit 1
 fi
 
-echo "Building"
+echo "Generating gRPC code from proto defintions"
 FILES=*/*.proto
 
-for f in $FILES
+for FILE in ${FILES}
 do
- docker run --rm -v $(pwd):$(pwd) -w $(pwd) grpc/go protoc --proto_path=. \
-  --go_out=plugins=grpc:. \
-  $f
+ docker run --rm -v $(pwd):$(pwd) -w $(pwd) grpc/go \
+    protoc --proto_path=. --go_out=plugins=grpc:. ${FILE}
 done
 
-echo "Publishing"
-git add .
-git commit -m $1
+echo "Publishing gRPC code"
+git reset
+git add proto
+git commit -m "${1}"
 git push
