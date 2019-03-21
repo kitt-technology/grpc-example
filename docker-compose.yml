@@ -1,0 +1,24 @@
+---
+version: "3"
+
+services:
+  service-a:
+    build:
+      context: serviceA
+      dockerfile: Dockerfile
+    environment:
+    - "PORT=9000"
+    - "PING_SERVICE=service-b:9001"
+    ports:
+    - 8080:9000
+  service-b:
+    build:
+      context: serviceB
+      dockerfile: Dockerfile
+    environment:
+    - "GRPC_PORT=9001"
+
+networks:
+  default:
+    external:
+      name: grpc-example

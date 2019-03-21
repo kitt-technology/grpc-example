@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ];
+then
+  echo "please describe this version"
+  exit 1
+fi
+
+echo "Building"
+FILES=*/*.proto
+
+for f in $FILES
+do
+ docker run --rm -v $(pwd):$(pwd) -w $(pwd) grpc/go protoc --proto_path=. \
+  --go_out=plugins=grpc:. \
+  $f
+done
+
+echo "Publishing"
+git add .
+git commit -m $1
+git push
