@@ -3,6 +3,10 @@
 
 package ping
 
+/*
+Test comment
+*/
+
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
@@ -34,7 +38,7 @@ func (m *PingRequest) Reset()         { *m = PingRequest{} }
 func (m *PingRequest) String() string { return proto.CompactTextString(m) }
 func (*PingRequest) ProtoMessage()    {}
 func (*PingRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ping_1685682074e9be51, []int{0}
+	return fileDescriptor_ping_f26e9101409ab49a, []int{0}
 }
 func (m *PingRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PingRequest.Unmarshal(m, b)
@@ -72,7 +76,7 @@ func (m *PingResponse) Reset()         { *m = PingResponse{} }
 func (m *PingResponse) String() string { return proto.CompactTextString(m) }
 func (*PingResponse) ProtoMessage()    {}
 func (*PingResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ping_1685682074e9be51, []int{1}
+	return fileDescriptor_ping_f26e9101409ab49a, []int{1}
 }
 func (m *PingResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PingResponse.Unmarshal(m, b)
@@ -176,9 +180,9 @@ var _Ping_serviceDesc = grpc.ServiceDesc{
 	Metadata: "proto/ping.proto",
 }
 
-func init() { proto.RegisterFile("proto/ping.proto", fileDescriptor_ping_1685682074e9be51) }
+func init() { proto.RegisterFile("proto/ping.proto", fileDescriptor_ping_f26e9101409ab49a) }
 
-var fileDescriptor_ping_1685682074e9be51 = []byte{
+var fileDescriptor_ping_f26e9101409ab49a = []byte{
 	// 123 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x28, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc8, 0xcc, 0x4b, 0xd7, 0x03, 0x33, 0x85, 0x58, 0x40, 0x6c, 0x25, 0x75, 0x2e,
