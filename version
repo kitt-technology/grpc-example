@@ -2,11 +2,11 @@
 
 if [ -z "$1" ];
 then
-  echo "please describe this version"
+  echo "provide a commit message"
   exit 1
 fi
 
-echo "Generating gRPC code from proto defintions"
+echo "generating gRPC code from protobuf defintions"
 FILES=*/*.proto
 
 for FILE in ${FILES}
@@ -15,7 +15,7 @@ do
     protoc --proto_path=. --go_out=plugins=grpc:. ${FILE}
 done
 
-echo "Publishing gRPC code"
+echo "publishing gRPC code"
 git reset
 git add proto
 git commit -m "${1}"
